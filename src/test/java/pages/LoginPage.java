@@ -1,5 +1,7 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -12,7 +14,7 @@ public class LoginPage {
 
     public LoginPage openPage() {
         open(URL);
-//        $(EMAIL_INPUT_CSS).waitUntil(Condition.selected, 30);
+        $(LOGIN_BUTTOM_CSS).waitUntil(Condition.appear, 30);
         return this;
     }
 
