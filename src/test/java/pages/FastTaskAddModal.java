@@ -20,13 +20,12 @@ public class FastTaskAddModal {
 
     public FastTaskAddModal fillInTaskDetails(String taskname) {
         $(TASK_NAME_INPUT_CSS).sendKeys(taskname);
-        //    $(TASK_DUE_TIME_INPUT_XPATH).click();
+        sleep(30);
         return this;
     }
 
     public FastTaskAddModal clickSubmitTaskButton() {
-        //$(TASK_SUBMIT_BUTTON_XPATH).shouldBe(Condition.enabled, true).click();
-        sleep(30);
+        $(TASK_SUBMIT_BUTTON_XPATH).shouldNotBe(Condition.disabled).click();
         $(ADD_TASK_ICON_CSS).click();
         return this;
     }
