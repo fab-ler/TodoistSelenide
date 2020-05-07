@@ -12,9 +12,8 @@ public class TodoistTest extends BaseTest {
         // fill in form
         // save done
         steps
-                .login("tmsaqa3@gmail.com", "pswrdAQA3");
-//                .createTask();
-
+                .login("tmsaqa3@gmail.com", "pswrdAQA3")
+                .newTaskAdd("Fast Add Task creation");
     }
 
 }
