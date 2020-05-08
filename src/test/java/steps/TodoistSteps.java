@@ -22,10 +22,10 @@ public class TodoistSteps {
         return this;
     }
 
-    public TodoistSteps newTaskAdd(String taskName) {
+    public TodoistSteps newTaskAdd(String taskName, int dateIndex) {
         todayPage.clickTaskFastAdd();
         fastTaskAddModal.isPageOpened();
-        fastTaskAddModal.FastAddNewTaskWithTerm(taskName);
+        fastTaskAddModal.FastAddNewTaskWithTerm(taskName, dateIndex);
 
         return this;
     }
