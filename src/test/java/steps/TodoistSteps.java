@@ -18,9 +18,15 @@ public class TodoistSteps {
         incomingTasksPage = new IncomingTasksPage();
     }
 
-    public TodoistSteps login(String user, String password) {
+    public TodoistSteps wrongCredsErrorCheck() {
         loginPage.openPage();
-        loginPage.login(user, password);
+        loginPage.checkForErrorMessage();
+        return this;
+    }
+
+    public TodoistSteps signIn(String user, String password) {
+        loginPage.openPage();
+        loginPage.signIn(user, password);
         todayPage.isPageOpened();
         return this;
     }

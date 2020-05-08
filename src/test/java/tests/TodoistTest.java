@@ -12,7 +12,8 @@ public class TodoistTest extends BaseTest {
         // fill in form
         // save done
         steps
-                .login("tmsaqa3@gmail.com", "pswrdAQA3")
+                .wrongCredsErrorCheck()
+                .signIn("tmsaqa3@gmail.com", "pswrdAQA3")
                 .newTaskAdd("A task for tomorrow", 2)
                 .newTaskAdd("A Task without a term", 1)
                 .checkForIncomingTasks();
