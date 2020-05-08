@@ -25,8 +25,8 @@ public class TodoistSteps {
     public TodoistSteps newTaskAdd(String taskName) {
         todayPage.clickTaskFastAdd();
         fastTaskAddModal.isPageOpened();
-        fastTaskAddModal.fillInTaskDetails(taskName);
-//        fastTaskAddModal.clickSubmitTaskButton();
+        fastTaskAddModal.FastAddNewTaskWithTerm(taskName);
+
         return this;
     }
 }
