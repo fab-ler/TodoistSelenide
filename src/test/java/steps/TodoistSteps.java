@@ -1,6 +1,7 @@
 package steps;
 
 import pages.FastTaskAddModal;
+import pages.IncomingTasksPage;
 import pages.LoginPage;
 import pages.TodayPage;
 
@@ -8,11 +9,13 @@ public class TodoistSteps {
     LoginPage loginPage;
     TodayPage todayPage;
     FastTaskAddModal fastTaskAddModal;
+    IncomingTasksPage incomingTasksPage;
 
     public TodoistSteps() {
         loginPage = new LoginPage();
         todayPage = new TodayPage();
         fastTaskAddModal = new FastTaskAddModal();
+        incomingTasksPage = new IncomingTasksPage();
     }
 
     public TodoistSteps login(String user, String password) {
@@ -26,7 +29,12 @@ public class TodoistSteps {
         todayPage.clickTaskFastAdd();
         fastTaskAddModal.isPageOpened();
         fastTaskAddModal.FastAddNewTaskWithTerm(taskName, dateIndex);
-
         return this;
     }
+
+    public TodoistSteps checkForIncomingTasks() {
+        incomingTasksPage.isPageOpened();
+        return this;
+    }
+
 }

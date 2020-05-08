@@ -15,7 +15,7 @@ public class TodoistTest extends BaseTest {
                 .login("tmsaqa3@gmail.com", "pswrdAQA3")
                 .newTaskAdd("A task for tomorrow", 2)
                 .newTaskAdd("A Task without a term", 1)
-//                .newTaskAdd("A Task for today", 0);
+                .checkForIncomingTasks();
     }
 
 }
