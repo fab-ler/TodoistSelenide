@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -13,12 +14,14 @@ public class LoginPage {
     String LOGIN_BUTTON_CSS = ".submit_btn";
     String WARNING_CIRCLE_ICON = ".cmp_warning_circle"; // check for error msg: "Неверный Email-адрес." | Не указан пароль. | Неверный Email или пароль.
 
+    @Step("open login page")
     public LoginPage openPage() {
         open(URL);
         $(LOGIN_BUTTON_CSS).waitUntil(Condition.appear, 30);
         return this;
     }
 
+    @Step("sign in with valid credentials")
     public LoginPage signIn(String user, String password) {
         $(EMAIL_INPUT_CSS).sendKeys(user);
         $(PASSWORD_INPUT_CSS).sendKeys(password);
@@ -26,7 +29,7 @@ public class LoginPage {
         return this;
     }
 
-
+    @Step("check for signin with wrong credentials")
     public LoginPage checkForErrorMessage() {
         $(EMAIL_INPUT_CSS).sendKeys("");
         $(PASSWORD_INPUT_CSS).sendKeys("");

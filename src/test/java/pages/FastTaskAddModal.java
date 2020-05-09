@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -14,11 +15,13 @@ public class FastTaskAddModal {
     String SUBMIT_BUTTON_XPATH = "//*[@id='reactist-modal-box-0']/section/form/div[2]/button";
     ElementsCollection SELECT_TASK_DATE_ICON_CSS = $$(".scheduler-suggestions-item-icon");
 
+    @Step("click fast task modal")
     public FastTaskAddModal isPageOpened() {
         $(ADD_TASK_ICON_CSS).should(Condition.appear);
         return this;
     }
 
+    @Step("add a new task fast task modal")
     public FastTaskAddModal FastAddNewTaskWithTerm(String taskname, int dateIndex) {
         $(TASK_NAME_INPUT_CSS).sendKeys(taskname);
         sleep(30);
