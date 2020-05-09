@@ -9,13 +9,16 @@ public class TodoistTest extends BaseTest {
         // open login page
         // login
         // click add task
-        // fill in form
-        // save done
+        // add three tasks with three different terms
+        // edit an existing task (priority, project)
+        // fulfill task
+        // delete task
         steps
                 .wrongCredsErrorCheck()
                 .signIn("tmsaqa3@gmail.com", "pswrdAQA3")
-                .newTaskAdd("A task for tomorrow", 2)
-                .newTaskAdd("A Task without a term", 1)
+                .newTaskAdd("A Task for today", 0)
+                .newTaskAdd("A task for tomorrow", 1)
+                .newTaskAdd("A Task for a next week", 2)
                 .checkForIncomingTasks();
     }
 

@@ -1,20 +1,19 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.WebDriverRunner.url;
+import static org.testng.Assert.assertEquals;
 
 public class TodayPage {
 
-    // иконка на странице сегодня "Вы выполнили все задачи на неделю! #TodoistZero" при отсутствии задач
-    String EMPTY_TASKLIST_ICON_CSS = ".empty-state-header";
     String ADD_NEW_TASK_CSS = "#quick_add_task_holder";
+    String CURRENT_URL = "https://todoist.com/app/#start";
 
 
     public TodayPage isPageOpened() {
         sleep(5000);
-        $(EMPTY_TASKLIST_ICON_CSS).waitUntil(Condition.appear, 30);
+        assertEquals(url(), CURRENT_URL, "wrong homepage URL");
         return this;
     }
 

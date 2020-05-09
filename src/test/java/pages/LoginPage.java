@@ -11,7 +11,7 @@ public class LoginPage {
     String EMAIL_INPUT_CSS = "#email";
     String PASSWORD_INPUT_CSS = "#password";
     String LOGIN_BUTTON_CSS = ".submit_btn";
-    String WARNING_CIRCLE_ICON = ".cmp_warning_circle"; // "Неверный Email-адрес." //Не указан пароль. //Неверный Email или пароль.
+    String WARNING_CIRCLE_ICON = ".cmp_warning_circle"; // check for error msg: "Неверный Email-адрес." | Не указан пароль. | Неверный Email или пароль.
 
     public LoginPage openPage() {
         open(URL);

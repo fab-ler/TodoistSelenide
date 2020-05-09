@@ -40,6 +40,7 @@ public class TodoistSteps {
 
     public TodoistSteps checkForIncomingTasks() {
         incomingTasksPage.isPageOpened();
+//        incomingTasksPage.checkForTasksAvailability();
         return this;
     }
 
