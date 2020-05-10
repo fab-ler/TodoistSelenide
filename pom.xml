@@ -71,7 +71,6 @@
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -79,7 +78,6 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -117,16 +115,12 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-
         <!--Для считывания yaml-файлов -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
             <version>${yaml.version}</version>
         </dependency>
-
-
     </dependencies>
 
-    
 </project>
