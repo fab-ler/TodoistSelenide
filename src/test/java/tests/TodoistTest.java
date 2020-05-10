@@ -10,21 +10,21 @@ public class TodoistTest extends BaseTest {
     @Step("check for signin error messages, when using wrong credentials")
     @Test(priority = 0)
     public void wrongCredsErrorCheck() {
-        steps
+        todoistSteps
                 .wrongCredsErrorCheck();
     }
 
     @Step("successful sign in")
     @Test(priority = 1)
     public void signIn() {
-        steps
+        todoistSteps
                 .signIn("tmsaqa3@gmail.com", "pswrdAQA3");
     }
 
     @Step("add several new tasks and check incoming tasks")
     @Test(priority = 2)
     public void createNewTask() {
-        steps
+        todoistSteps
                 .newTaskAdd("A Task for today", 0)
                 .newTaskAdd("A task for tomorrow", 1)
                 .newTaskAdd("A Task for a next week", 2)

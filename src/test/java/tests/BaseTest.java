@@ -2,31 +2,37 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import steps.TodoistSteps;
-import utils.TestListener;
+import tests.utils.TestListener;
+import utils.PropertyManager;
 
 @Listeners(TestListener.class)
 public class BaseTest {
 
-    TodoistSteps steps;
+    TodoistSteps todoistSteps;
+    PropertyManager propertyManager;
 
     @BeforeClass
     public void setUpBrowser() {
-        Configuration.browser = "chrome";
-        Configuration.timeout = 10000;
+        propertyManager = PropertyManager.getInstance();
+        Configuration.timeout = 20000;
         Configuration.startMaximized = true;
-        Configuration.headless = false;
+        Configuration.screenshots = true;
         //TODO remove later
         Configuration.holdBrowserOpen = true;
+        todoistSteps = new TodoistSteps();
+//        Configuration.browser = "chrome";
+//        Configuration.headless = false;
     }
 
-    @BeforeMethod
-    public void openBrowser() {
-        steps = new TodoistSteps();
-    }
 
+    //TODO delete later
+//    @BeforeMethod
+//    public void openBrowser() {
+//        todoistSteps = new TodoistSteps();
+//    }
+//
 //    @AfterMethod
 //    public void closeBrowser() {
 //        getWebDriver().close();
