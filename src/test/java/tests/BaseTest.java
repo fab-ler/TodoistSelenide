@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import steps.TodoistSteps;
 
+
 public class BaseTest {
 
     TodoistSteps steps;

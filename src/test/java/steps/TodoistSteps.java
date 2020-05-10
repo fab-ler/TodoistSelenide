@@ -1,22 +1,21 @@
 package steps;
 
 import io.qameta.allure.Step;
-import pages.FastTaskAddModal;
-import pages.IncomingTasksPage;
-import pages.LoginPage;
-import pages.TodayPage;
+import pages.*;
 
 public class TodoistSteps {
     LoginPage loginPage;
     TodayPage todayPage;
     FastTaskAddModal fastTaskAddModal;
     IncomingTasksPage incomingTasksPage;
+    AddProjectModal addProjectModal;
 
     public TodoistSteps() {
         loginPage = new LoginPage();
         todayPage = new TodayPage();
         fastTaskAddModal = new FastTaskAddModal();
         incomingTasksPage = new IncomingTasksPage();
+        addProjectModal = new AddProjectModal();
     }
 
     @Step("signin attempt check with wrong Credendials")
@@ -46,6 +45,13 @@ public class TodoistSteps {
     public TodoistSteps checkForIncomingTasks() {
         incomingTasksPage.isPageOpened();
 //        incomingTasksPage.checkForTasksAvailability();
+        return this;
+    }
+
+    @Step("Add a new project")
+    public TodoistSteps addNewProject() {
+        addProjectModal.openProjectModal();
+        ;
         return this;
     }
 

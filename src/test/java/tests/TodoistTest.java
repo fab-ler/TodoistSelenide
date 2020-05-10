@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 public class TodoistTest extends BaseTest {
 
-
     @Step("check for signin error messages, when using wrong credentials")
     @Test(priority = 0)
     // open login page
