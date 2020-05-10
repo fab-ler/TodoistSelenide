@@ -12,6 +12,9 @@ public class IncomingTasksPage {
     String INCOMING_TASKS_PROJECT_LINK_CSS = ".project_link";
     String LIST_OF_TASKS = ".text.sel_item_content"; // .task_item_details
 
+    //del
+    String ADD_PROJECT_LINK = "//a[@class='action sel_add_project']";
+
     @Step("go to incoming tasks page")
     public IncomingTasksPage isPageOpened() {
         $(INCOMING_LINK_CSS).click();
@@ -19,7 +22,9 @@ public class IncomingTasksPage {
         return this;
     }
 
-//    public IncomingTasksPage checkForTasksAvailability () {
+
+//TODO написать метод проверки наличия созданных задач в массиве входящих
+    //    public IncomingTasksPage checkForTasksAvailability () {
 //        $$(LIST_OF_TASKS).shouldHave(sizeGreaterThan(1));
 //        return this;
 //    }
