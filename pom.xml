@@ -121,6 +121,7 @@
             <artifactId>jackson-dataformat-yaml</artifactId>
             <version>${yaml.version}</version>
         </dependency>
+
     </dependencies>
 
 </project>
