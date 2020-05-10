@@ -2,10 +2,12 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
+@Log4j2
 public class LoginPage {
 
     String URL = "https://todoist.com/users/showLogin";
@@ -16,6 +18,7 @@ public class LoginPage {
 
     @Step("open login page")
     public LoginPage openPage() {
+        log.info("Opening Login page of the application by url: " + URL);
         open(URL);
         $(LOGIN_BUTTON_CSS).waitUntil(Condition.appear, 30);
         return this;

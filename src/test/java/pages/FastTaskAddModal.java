@@ -3,10 +3,12 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
+@Log4j2
 public class FastTaskAddModal {
 
     String ADD_TASK_ICON_CSS = ".item_editor_submit";
@@ -17,6 +19,7 @@ public class FastTaskAddModal {
 
     @Step("click fast task modal")
     public FastTaskAddModal isPageOpened() {
+        log.debug("Checking the FastTaskAddModal is opened.");
         $(ADD_TASK_ICON_CSS).should(Condition.appear);
         return this;
     }

@@ -2,10 +2,11 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selenide.$;
 
-
+@Log4j2
 public class IncomingTasksPage {
 
     String INCOMING_LINK_CSS = "#filter_inbox";
@@ -18,6 +19,7 @@ public class IncomingTasksPage {
     @Step("go to incoming tasks page")
     public IncomingTasksPage isPageOpened() {
         $(INCOMING_LINK_CSS).click();
+        log.debug("Checking the IncomingTasksPage is opened.");
         $(INCOMING_TASKS_PROJECT_LINK_CSS).should(Condition.appear);
         return this;
     }
