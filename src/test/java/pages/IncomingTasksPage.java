@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 @Log4j2
 public class IncomingTasksPage {
@@ -25,10 +26,10 @@ public class IncomingTasksPage {
     }
 
 
-//TODO написать метод проверки наличия созданных задач в массиве входящих
-    //    public IncomingTasksPage checkForTasksAvailability () {
-//        $$(LIST_OF_TASKS).shouldHave(sizeGreaterThan(1));
-//        return this;
-//    }
+    //TODO написать метод проверки наличия созданных задач в массиве входящих
+    public IncomingTasksPage checkForTasksAvailability() {
+        $$(LIST_OF_TASKS).get(1).should(Condition.exist);
+        return this;
+    }
 
 }

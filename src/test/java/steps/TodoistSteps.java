@@ -46,7 +46,7 @@ public class TodoistSteps {
     @Step("check incoming tasks")
     public TodoistSteps checkForIncomingTasks() {
         incomingTasksPage.isPageOpened();
-//        incomingTasksPage.checkForTasksAvailability();
+        incomingTasksPage.checkForTasksAvailability();
         return this;
     }
 
