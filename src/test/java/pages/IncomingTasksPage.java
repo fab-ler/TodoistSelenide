@@ -16,7 +16,6 @@ public class IncomingTasksPage {
     String ACTION_CHECKBOX = ".ist_checkbox";
     String UNDO_TOAST = ".undo_toast_positioner";
 
-
     @Step("go to incoming tasks page")
     public IncomingTasksPage isPageOpened() {
         $(INCOMING_LINK_CSS).click();

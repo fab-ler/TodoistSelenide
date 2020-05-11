@@ -11,6 +11,7 @@ public class TodoistSteps {
     FastTaskAddModal fastTaskAddModal;
     IncomingTasksPage incomingTasksPage;
     AddProjectModal addProjectModal;
+    EditTaskModal editTaskModal;
 
     public TodoistSteps() {
         loginPage = new LoginPage();
@@ -18,6 +19,7 @@ public class TodoistSteps {
         fastTaskAddModal = new FastTaskAddModal();
         incomingTasksPage = new IncomingTasksPage();
         addProjectModal = new AddProjectModal();
+        editTaskModal = new EditTaskModal();
     }
 
     @Step("signin attempt check with wrong Credendials")
@@ -31,7 +33,6 @@ public class TodoistSteps {
     public TodoistSteps signIn(String user, String password) {
         loginPage.openPage();
         loginPage.signIn(user, password);
-        todayPage.isPageOpened();
         return this;
     }
 
@@ -65,6 +66,21 @@ public class TodoistSteps {
     @Step("complete an existing task")
     public TodoistSteps completeExistingTask() {
         incomingTasksPage.completeTask();
+        return this;
+    }
+
+    @Step("delete an existing Task")
+    public TodoistSteps deleteTask() {
+        editTaskModal.openModal();
+        editTaskModal.deleteTask();
+        return this;
+    }
+
+    @Step("edit an existing Task")
+    public TodoistSteps editTaskProperties() {
+        editTaskModal.openModal();
+        editTaskModal.editTaskProperties();
+        editTaskModal.closeModal();
         return this;
     }
 }
