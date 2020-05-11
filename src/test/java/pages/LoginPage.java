@@ -1,11 +1,11 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.NoSuchElementException;
+import org.testng.Assert;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 @Log4j2
 public class LoginPage {
@@ -16,15 +16,24 @@ public class LoginPage {
     String LOGIN_BUTTON_CSS = ".submit_btn";
     String WARNING_CIRCLE_ICON = ".cmp_warning_circle"; // check for error msg: "Неверный Email-адрес." | Не указан пароль. | Неверный Email или пароль.
 
-    @Step("open login page")
     public LoginPage openPage() {
         log.info("Opening Login page of the application by url: " + URL);
         open(URL);
-        $(LOGIN_BUTTON_CSS).waitUntil(Condition.appear, 30);
+        try {
+            isPageOpened();
+        } catch (NoSuchElementException e) {
+            log.error("Page is not opened: element 'Login button' is not found.");
+            screenshot("login_page_not_opened");
+            Assert.fail("Login page cannot be opened.");
+        }
         return this;
     }
 
-    @Step("sign in with valid credentials")
+    void isPageOpened() {
+        log.debug("Checking the Login page is opened.");
+        $(LOGIN_BUTTON_CSS).waitUntil(Condition.appear, 30);
+    }
+
     public LoginPage signIn(String user, String password) {
         $(EMAIL_INPUT_CSS).sendKeys(user);
         $(PASSWORD_INPUT_CSS).sendKeys(password);
@@ -32,7 +41,6 @@ public class LoginPage {
         return this;
     }
 
-    @Step("check for signin with wrong credentials")
     public LoginPage checkForErrorMessage() {
         $(EMAIL_INPUT_CSS).sendKeys("");
         $(PASSWORD_INPUT_CSS).sendKeys("");

@@ -27,7 +27,7 @@ public class TodoistSteps {
         return this;
     }
 
-    @Step("signin attempt check with correct Credendials")
+    @Step("sign in with correct creds")
     public TodoistSteps signIn(String user, String password) {
         loginPage.openPage();
         loginPage.signIn(user, password);
