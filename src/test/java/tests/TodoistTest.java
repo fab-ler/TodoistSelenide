@@ -7,13 +7,6 @@ import org.testng.annotations.Test;
 @Log4j2
 public class TodoistTest extends BaseTest {
 
-    @Step("check for signin error messages, when using wrong credentials")
-    @Test(priority = 0)
-    public void wrongCredsErrorCheck() {
-        todoistSteps
-                .wrongCredsErrorCheck();
-    }
-
     @Step("successful sign in")
     @Test(priority = 1)
     public void signIn() {
