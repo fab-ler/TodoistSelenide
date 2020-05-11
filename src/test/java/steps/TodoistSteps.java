@@ -35,7 +35,7 @@ public class TodoistSteps {
         return this;
     }
 
-    @Step("new task add")
+        @Step("new task add")
     public TodoistSteps newTaskAdd(String taskName, int dateIndex) {
         todayPage.clickTaskFastAdd();
         fastTaskAddModal.isPageOpened();
@@ -57,4 +57,9 @@ public class TodoistSteps {
         return this;
     }
 
+    @Step("Logout")
+    public TodoistSteps logOut() {
+        loginPage.logOut();
+        return this;
+    }
 }

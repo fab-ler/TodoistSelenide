@@ -15,6 +15,9 @@ public class LoginPage {
     String PASSWORD_INPUT_CSS = "#password";
     String LOGIN_BUTTON_CSS = ".submit_btn";
     String WARNING_CIRCLE_ICON = ".cmp_warning_circle"; // check for error msg: "Неверный Email-адрес." | Не указан пароль. | Неверный Email или пароль.
+    String PREFERENCES_ICON = ".gear_normal";
+    String PREFENRENCES_MENU_ITEMS = ".usermenu__row-label";
+
 
     public LoginPage openPage() {
         log.info("Opening Login page of the application by url: " + URL);
@@ -55,6 +58,13 @@ public class LoginPage {
         $(PASSWORD_INPUT_CSS).sendKeys("123456");
         $(LOGIN_BUTTON_CSS).click();
         $(WARNING_CIRCLE_ICON).shouldBe(Condition.exist);
+        return this;
+    }
+
+    public LoginPage logOut() {
+        $(PREFERENCES_ICON).click();
+        sleep(30);
+        $$(PREFENRENCES_MENU_ITEMS).get(11).click();
         return this;
     }
 }

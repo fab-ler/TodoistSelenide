@@ -1,10 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import steps.TodoistSteps;
 import tests.utils.TestListener;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Listeners(TestListener.class)
 
@@ -27,9 +30,9 @@ public class BaseTest {
 
     //TODO delete later
 //
-//    @AfterMethod(alwaysRun = true)
-//    public void closeBrowser() {
-//        getWebDriver().quit();
-//    }
+    @AfterMethod(alwaysRun = true)
+    public void closeBrowser() {
+        getWebDriver().quit();
+    }
 
 }
