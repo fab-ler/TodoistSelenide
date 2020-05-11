@@ -35,7 +35,7 @@ public class TodoistSteps {
         return this;
     }
 
-        @Step("new task add")
+    @Step("new task add")
     public TodoistSteps newTaskAdd(String taskName, int dateIndex) {
         todayPage.clickTaskFastAdd();
         fastTaskAddModal.isPageOpened();
@@ -43,23 +43,28 @@ public class TodoistSteps {
         return this;
     }
 
-    @Step("check incoming tasks")
+    @Step("go to incoming tasks page and check their availability")
     public TodoistSteps checkForIncomingTasks() {
         incomingTasksPage.isPageOpened();
         incomingTasksPage.checkForTasksAvailability();
         return this;
     }
 
-    @Step("Add a new project")
-    public TodoistSteps addNewProject() {
-        addProjectModal.openProjectModal();
-        ;
-        return this;
-    }
-
     @Step("Logout")
     public TodoistSteps logOut() {
         loginPage.logOut();
+        return this;
+    }
+
+    @Step("Add a new project")
+    public TodoistSteps addNewProject() {
+        addProjectModal.openProjectModal();
+        return this;
+    }
+
+    @Step("complete an existing task")
+    public TodoistSteps completeExistingTask() {
+        incomingTasksPage.completeTask();
         return this;
     }
 }

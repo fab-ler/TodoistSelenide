@@ -20,16 +20,15 @@ public class BaseTest {
         Configuration.startMaximized = true;
         Configuration.timeout = 20000;
         Configuration.screenshots = true;
+        Configuration.browser = "chrome";
+        Configuration.headless = false;
         //TODO remove later
         Configuration.holdBrowserOpen = true;
+        Configuration.fastSetValue = true;
         // STEPS
         todoistSteps = new TodoistSteps();
-//        Configuration.browser = "chrome";
-//        Configuration.headless = false;
     }
 
-    //TODO delete later
-//
     @AfterMethod(alwaysRun = true)
     public void closeBrowser() {
         getWebDriver().quit();

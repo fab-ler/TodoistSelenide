@@ -13,9 +13,9 @@ public class IncomingTasksPage {
     String INCOMING_LINK_CSS = "#filter_inbox";
     String INCOMING_TASKS_PROJECT_LINK_CSS = ".project_link";
     String LIST_OF_TASKS = ".text.sel_item_content"; // .task_item_details
+    String ACTION_CHECKBOX = ".ist_checkbox";
+    String UNDO_TOAST = ".undo_toast_positioner";
 
-    //del
-    String ADD_PROJECT_LINK = "//a[@class='action sel_add_project']";
 
     @Step("go to incoming tasks page")
     public IncomingTasksPage isPageOpened() {
@@ -25,10 +25,16 @@ public class IncomingTasksPage {
         return this;
     }
 
-
-    //TODO написать метод проверки наличия созданных задач в массиве входящих
+    @Step("check that an array of tasks created is not empty")
     public IncomingTasksPage checkForTasksAvailability() {
         $$(LIST_OF_TASKS).get(1).should(Condition.exist);
+        return this;
+    }
+
+    @Step("complete a task")
+    public IncomingTasksPage completeTask() {
+        $(ACTION_CHECKBOX, 1).click();
+        $(UNDO_TOAST).should(Condition.appear);
         return this;
     }
 
