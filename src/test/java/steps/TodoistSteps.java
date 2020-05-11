@@ -10,7 +10,6 @@ public class TodoistSteps {
     TodayPage todayPage;
     FastTaskAddModal fastTaskAddModal;
     IncomingTasksPage incomingTasksPage;
-    AddProjectModal addProjectModal;
     EditTaskModal editTaskModal;
 
     public TodoistSteps() {
@@ -18,7 +17,6 @@ public class TodoistSteps {
         todayPage = new TodayPage();
         fastTaskAddModal = new FastTaskAddModal();
         incomingTasksPage = new IncomingTasksPage();
-        addProjectModal = new AddProjectModal();
         editTaskModal = new EditTaskModal();
     }
 
@@ -57,12 +55,6 @@ public class TodoistSteps {
         return this;
     }
 
-    @Step("Add a new project")
-    public TodoistSteps addNewProject() {
-        addProjectModal.openProjectModal();
-        return this;
-    }
-
     @Step("complete an existing task")
     public TodoistSteps completeExistingTask() {
         incomingTasksPage.completeTask();
@@ -78,9 +70,7 @@ public class TodoistSteps {
 
     @Step("edit an existing Task")
     public TodoistSteps editTaskProperties() {
-        editTaskModal.openModal();
         editTaskModal.editTaskProperties();
-        editTaskModal.closeModal();
         return this;
     }
 }

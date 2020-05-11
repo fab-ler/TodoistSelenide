@@ -29,9 +29,15 @@ public class EditTaskModal {
     String DELETE_COMFIRMATION_BUTTON = ".ist_button_red";
 
 
+    String EDIT_TASK_ITEMS = ".task_item_actions";
+    String EDIT_CONTEXT_MENU = ".ist_menu";
+    String NEXT_WEEK_RESCHDULE_ICON = ".icon_next_week";
+    String UNDO_TOAST = ".undo_toast_positioner";
+
+
     public EditTaskModal openModal() {
         log.info("Opening edit task modal");
-        $(TASK_NAME_TEXT, 1).click();
+        $(TASK_NAME_TEXT, 0).click();
         try {
             isModalOpened();
         } catch (NoSuchElementException e) {
@@ -54,25 +60,20 @@ public class EditTaskModal {
         $(DELETE_COMFIRMATION_ALERT).should(Condition.appear);
         sleep(30);
         $(DELETE_COMFIRMATION_BUTTON).click();
-        sleep(30);
+//        sleep(30);
+//        $(UNDO_TOAST).should(appear);
         return this;
     }
+
 
 
     public EditTaskModal editTaskProperties() {
-        $(SUBTASK_ADD_BUTTON).click();
-        $(SUBTASK_ADD_BUTTON).shouldNot(exist);
-        $(SUBTASK_NAME_INPUT).sendKeys("Subtask");
+        $(EDIT_TASK_ITEMS, 0).contextClick();
+        $(EDIT_CONTEXT_MENU).should(exist);
         sleep(30);
-        $(SUBTASK_PICK_DATE_BUTTON).click();
-        $(SUBTASK_DATE_ITEM, 2).click();
-        $(SUBMIT_SUBTASK_BUTTON).click();
+        $(NEXT_WEEK_RESCHDULE_ICON).click();
+        sleep(30);
         return this;
     }
 
-
-    public EditTaskModal closeModal() {
-        $(CLOSE_MODAL_ICON).click();
-        return this;
-    }
 }
