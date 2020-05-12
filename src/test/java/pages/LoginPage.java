@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
+import org.testng.annotations.Test;
+import tests.utils.CustomDataProvider;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -17,6 +19,7 @@ public class LoginPage {
     String WARNING_CIRCLE_ICON = ".cmp_warning_circle"; // check for error msg: "Неверный Email-адрес." | Не указан пароль. | Неверный Email или пароль.
     String PREFERENCES_ICON = ".gear_normal";
     String PREFENRENCES_MENU_ITEMS = ".usermenu__row-label";
+    String PREFERENCES_MENU_CONTAINER = "#setting_menu";
 
 
     public LoginPage openPage() {
@@ -44,6 +47,8 @@ public class LoginPage {
         return this;
     }
 
+    @Test(dataProvider = "loginDataProvider", dataProviderClass = CustomDataProvider.class)
+
     public LoginPage checkForErrorMessage() {
         $(EMAIL_INPUT_CSS).sendKeys("");
         $(PASSWORD_INPUT_CSS).sendKeys("");
@@ -63,7 +68,7 @@ public class LoginPage {
 
     public LoginPage logOut() {
         $(PREFERENCES_ICON).click();
-        sleep(30);
+        $(PREFERENCES_MENU_CONTAINER).shouldBe(Condition.visible);
         $$(PREFENRENCES_MENU_ITEMS).get(11).click();
         return this;
     }
