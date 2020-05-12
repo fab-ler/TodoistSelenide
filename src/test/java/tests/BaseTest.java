@@ -22,10 +22,7 @@ public class BaseTest {
         Configuration.screenshots = true;
         Configuration.browser = "chrome";
         Configuration.headless = false;
-        //TODO remove later
-        Configuration.holdBrowserOpen = true;
         Configuration.fastSetValue = true;
-        // STEPS
         todoistSteps = new TodoistSteps();
     }
 
