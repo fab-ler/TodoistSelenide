@@ -48,8 +48,7 @@ public class LoginPage {
         return this;
     }
 
-    @Test(dataProvider = "loginDataProvider", dataProviderClass = CustomDataProvider.class)
-
+    @Test
     public LoginPage checkForErrorMessage() {
         $(EMAIL_INPUT_CSS).sendKeys("");
         $(PASSWORD_INPUT_CSS).sendKeys("");
