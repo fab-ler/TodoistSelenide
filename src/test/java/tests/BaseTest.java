@@ -18,10 +18,10 @@ public class BaseTest {
     @BeforeClass
     public void setUpBrowser() {
         Configuration.startMaximized = true;
-        Configuration.timeout = 20000;
+        Configuration.timeout = 40000;
         Configuration.screenshots = true;
         Configuration.browser = "chrome";
-        Configuration.headless = true;
+        Configuration.headless = false;
         Configuration.fastSetValue = true;
         todoistSteps = new TodoistSteps();
     }
