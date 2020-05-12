@@ -31,6 +31,7 @@ public class TodoistSteps {
     public TodoistSteps signIn(String user, String password) {
         loginPage.openPage();
         loginPage.signIn(user, password);
+        todayPage.isPageOpened();
         return this;
     }
 
