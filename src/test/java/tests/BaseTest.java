@@ -18,7 +18,7 @@ public class BaseTest {
     @BeforeClass
     public void setUpBrowser() {
         Configuration.startMaximized = true;
-        Configuration.timeout = 40000;
+        Configuration.timeout = 20000;
         Configuration.screenshots = true;
         Configuration.browser = "chrome";
         Configuration.headless = false;

@@ -19,7 +19,7 @@ public class LoginPage {
     String PREFERENCES_ICON = ".gear_normal";
     String PREFENRENCES_MENU_ITEMS = ".usermenu__row-label";
     String PREFERENCES_MENU_CONTAINER = "#setting_menu";
-    String LOADER_ICON = ".loading_screen--logo";
+//    String LOADER_ICON = ".loading_screen--logo";
 
 
     public LoginPage openPage() {
@@ -44,7 +44,7 @@ public class LoginPage {
         $(EMAIL_INPUT_CSS).sendKeys(user);
         $(PASSWORD_INPUT_CSS).sendKeys(password);
         $(LOGIN_BUTTON_CSS).click();
-        $(LOADER_ICON).should(Condition.disappear);
+//        $(LOADER_ICON).should(Condition.disappear);
         return this;
     }
 
