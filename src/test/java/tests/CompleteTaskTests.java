@@ -20,7 +20,7 @@ public class CompleteTaskTests extends BaseTest {
     }
 
     @Step("complete an existing task")
-    @Test(priority = 3)
+    @Test
     public void completeTask() {
         todoistSteps
                 .checkForIncomingTasks()

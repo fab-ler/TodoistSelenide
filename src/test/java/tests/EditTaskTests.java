@@ -22,7 +22,7 @@ public class EditTaskTests extends BaseTest {
     }
 
     @Step("edit a task")
-    @Test(priority = 6)
+    @Test
     public void editTask() {
         todoistSteps.editTaskProperties();
     }

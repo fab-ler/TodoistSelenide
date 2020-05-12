@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
 
     @Step("successful SignIn and LogOut")
-    @Test(priority = 1)
+    @Test
     public void signIn() {
         todoistSteps
                 .signIn("tmsaqa3@gmail.com", "pswrdAQA3")

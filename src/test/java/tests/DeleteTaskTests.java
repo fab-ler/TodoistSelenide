@@ -23,7 +23,7 @@ public class DeleteTaskTests extends BaseTest {
 
 
     @Step("delete a task")
-    @Test(priority = 5)
+    @Test
     public void deleteTask() {
         todoistSteps.deleteTask();
     }

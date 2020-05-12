@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class WrongCredsTests extends BaseTest {
 
     @Step("check for signin error messages, when using wrong credentials")
-    @Test(priority = 0)
+    @Test
     public void wrongCredsErrorCheck() {
         todoistSteps
                 .wrongCredsErrorCheck();

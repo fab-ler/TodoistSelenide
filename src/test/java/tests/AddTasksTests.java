@@ -20,7 +20,7 @@ public class AddTasksTests extends BaseTest {
     }
 
     @Step("add several new tasks and check incoming tasks")
-    @Test(priority = 2)
+    @Test
     public void createNewTask() {
         todoistSteps
                 .newTaskAdd("A Task for today", 0)
