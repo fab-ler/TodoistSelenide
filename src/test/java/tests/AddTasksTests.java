@@ -23,9 +23,9 @@ public class AddTasksTests extends BaseTest {
     @Test
     public void createNewTask() {
         todoistSteps
-                .newTaskAdd("A Task for today", 0)
-                .newTaskAdd("A task for tomorrow", 1)
-                .newTaskAdd("A Task for a next week", 2)
+                .addNewTask("A Task for today", 0)
+                .addNewTask("A task for tomorrow", 1)
+                .addNewTask("A Task for a next week", 2)
                 .checkForIncomingTasks();
     }
 }

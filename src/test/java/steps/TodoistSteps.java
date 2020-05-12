@@ -35,7 +35,7 @@ public class TodoistSteps {
     }
 
     @Step("new task add")
-    public TodoistSteps newTaskAdd(String taskName, int dateIndex) {
+    public TodoistSteps addNewTask(String taskName, int dateIndex) {
         todayPage.clickTaskFastAdd();
         fastTaskAddModal.isPageOpened();
         fastTaskAddModal.FastAddNewTaskWithTerm(taskName, dateIndex);
