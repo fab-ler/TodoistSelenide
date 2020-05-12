@@ -13,22 +13,10 @@ public class EditTaskModal {
 
     String TASK_NAME_TEXT = ".task_item_content_text";
     String CLOSE_MODAL_ICON = ".item_detail_close";
-    String PRIORITY_SELECT_ICON = ".item_actions_priority";
-    String PRIORITY_NAME = ".priority_picker_item_name";
-
-    String SUBTASK_ADD_BUTTON = ".plus_add_button";
-    String SUBTASK_NAME_INPUT = ".DraftEditor-editorContainer";
-    String SUBTASK_PICK_DATE_BUTTON = ".item_editor_assign_due";
-    String SUBTASK_DATE_ITEM = ".scheduler-suggestions-item-label";
-    String SUBMIT_SUBTASK_BUTTON = "//button[@type='submit']";
-
-
     String MORE_ACTIONS_ICON = ".item_action.item_actions_more";
     String DELETE_OPTION_ITEM = ".danger_menu";
     String DELETE_COMFIRMATION_ALERT = ".delete_confirmation";
     String DELETE_COMFIRMATION_BUTTON = ".ist_button_red";
-
-
     String EDIT_TASK_ITEMS = ".task_item_actions";
     String EDIT_CONTEXT_MENU = ".ist_menu";
     String NEXT_WEEK_RESCHDULE_ICON = ".icon_next_week";
@@ -64,8 +52,6 @@ public class EditTaskModal {
 //        $(UNDO_TOAST).should(appear);
         return this;
     }
-
-
 
     public EditTaskModal editTaskProperties() {
         $(EDIT_TASK_ITEMS, 0).contextClick();
