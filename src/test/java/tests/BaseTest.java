@@ -21,7 +21,7 @@ public class BaseTest {
         Configuration.timeout = 20000;
         Configuration.screenshots = true;
         Configuration.browser = "chrome";
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.fastSetValue = true;
         todoistSteps = new TodoistSteps();
     }
