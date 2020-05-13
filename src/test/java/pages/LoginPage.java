@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
@@ -20,7 +21,6 @@ public class LoginPage {
     String PREFENRENCES_MENU_ITEMS = ".usermenu__row-label";
     String PREFERENCES_MENU_CONTAINER = "#setting_menu";
 //    String LOADER_ICON = ".loading_screen--logo";
-
 
     public LoginPage openPage() {
         log.info("Opening Login page of the application by url: " + URL);
@@ -67,7 +67,9 @@ public class LoginPage {
     }
 
     public LoginPage logOut() {
-        $(PREFERENCES_ICON).click();
+        SelenideElement element = $(".gear_normal");
+        actions().moveToElement(element).click(element).perform();
+//        $(PREFERENCES_ICON).click();
         $(PREFERENCES_MENU_CONTAINER).shouldBe(Condition.visible);
         $$(PREFENRENCES_MENU_ITEMS).get(11).click();
         return this;
