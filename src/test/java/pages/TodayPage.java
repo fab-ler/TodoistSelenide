@@ -1,0 +1,31 @@
+package pages;
+
+import lombok.extern.log4j.Log4j2;
+import tests.utils.AllureUtils;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.url;
+import static org.testng.Assert.assertEquals;
+
+@Log4j2
+public class TodayPage {
+
+    String ADD_NEW_TASK_CSS = "#quick_add_task_holder";
+    String CURRENT_URL = "https://todoist.com/app/#start";
+
+    public TodayPage isPageOpened() {
+        sleep(5000);
+        assertEquals(url(), CURRENT_URL, "wrong homepage URL");
+        AllureUtils.takeScreenshot(getWebDriver());
+        return this;
+    }
+
+    public TodayPage clickTaskFastAdd() {
+        $(ADD_NEW_TASK_CSS).click();
+        AllureUtils.takeScreenshot(getWebDriver());
+        return this;
+    }
+
+}

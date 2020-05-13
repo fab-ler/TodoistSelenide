@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" verbose="5" name="Test suite" parallel="tests">
+
+    <listeners>
+        <listener class-name="utils.RetryListener"/>
+    </listeners>
+
+    <test name="signIn using invalid creds">
+        <classes>
+            <class name="tests.WrongCredsTests"/>
+        </classes>
+    </test>
+
+    <test name="SignIn with valid creds and logout">
+        <classes>
+            <class name="tests.LoginTests"/>
+        </classes>
+    </test>
+
+    <test name="Add new tasks">
+        <classes>
+            <class name="tests.AddTasksTests"/>
+        </classes>
+    </test>
+
+    <test name="Edit a task">
+        <classes>
+            <class name="tests.EditTaskTests"/>
+        </classes>
+    </test>
+
+    <test name="Complete a task">
+        <classes>
+            <class name="tests.CompleteTaskTests"/>
+        </classes>
+    </test>
+    <test name="Delete a task">
+        <classes>
+            <class name="tests.DeleteTaskTests"/>
+        </classes>
+    </test>
+
+</suite>
