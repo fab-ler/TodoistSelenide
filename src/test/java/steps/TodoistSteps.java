@@ -62,9 +62,8 @@ public class TodoistSteps {
         return this;
     }
 
-    @Step("delete an existing Task")
+    @Step("delete a dast through context menu")
     public TodoistSteps deleteTask() {
-        editTaskModal.openModal();
         editTaskModal.deleteTask();
         return this;
     }
