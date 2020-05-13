@@ -4,9 +4,11 @@ import com.codeborne.selenide.Condition;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
+import tests.utils.AllureUtils;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Log4j2
 public class EditTaskModal {
@@ -39,15 +41,19 @@ public class EditTaskModal {
     void isModalOpened() {
         log.debug("Checking the edit modal page is opened.");
         $(CLOSE_MODAL_ICON).waitUntil(Condition.appear, 30);
+        AllureUtils.takeScreenshot(getWebDriver());
     }
 
     public EditTaskModal deleteTask() {
         $(MORE_ACTIONS_ICON).click();
         sleep(30);
+        AllureUtils.takeScreenshot(getWebDriver());
         $(DELETE_OPTION_ITEM).click();
         $(DELETE_COMFIRMATION_ALERT).should(Condition.appear);
+        AllureUtils.takeScreenshot(getWebDriver());
         sleep(30);
         $(DELETE_COMFIRMATION_BUTTON).click();
+        AllureUtils.takeScreenshot(getWebDriver());
 //        sleep(30);
 //        $(UNDO_TOAST).should(appear);
         return this;
@@ -56,9 +62,12 @@ public class EditTaskModal {
     public EditTaskModal editTaskProperties() {
         $(EDIT_TASK_ITEMS, 0).contextClick();
         $(EDIT_CONTEXT_MENU).should(exist);
+        AllureUtils.takeScreenshot(getWebDriver());
         sleep(30);
+        AllureUtils.takeScreenshot(getWebDriver());
         $(NEXT_WEEK_RESCHDULE_ICON).click();
         sleep(30);
+        AllureUtils.takeScreenshot(getWebDriver());
         return this;
     }
 

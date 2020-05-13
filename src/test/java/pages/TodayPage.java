@@ -2,9 +2,11 @@ package pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import tests.utils.AllureUtils;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.testng.Assert.assertEquals;
 
@@ -18,12 +20,14 @@ public class TodayPage {
     public TodayPage isPageOpened() {
         sleep(5000);
         assertEquals(url(), CURRENT_URL, "wrong homepage URL");
+        AllureUtils.takeScreenshot(getWebDriver());
         return this;
     }
 
     @Step("Click add a new task")
     public TodayPage clickTaskFastAdd() {
         $(ADD_NEW_TASK_CSS).click();
+        AllureUtils.takeScreenshot(getWebDriver());
         return this;
     }
 

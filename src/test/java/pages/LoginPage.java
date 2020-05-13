@@ -6,8 +6,10 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.utils.AllureUtils;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Log4j2
 public class LoginPage {
@@ -43,7 +45,9 @@ public class LoginPage {
     public LoginPage signIn(String user, String password) {
         $(EMAIL_INPUT_CSS).sendKeys(user);
         $(PASSWORD_INPUT_CSS).sendKeys(password);
+        AllureUtils.takeScreenshot(getWebDriver());
         $(LOGIN_BUTTON_CSS).click();
+        AllureUtils.takeScreenshot(getWebDriver());
 //        $(LOADER_ICON).should(Condition.disappear);
         return this;
     }
