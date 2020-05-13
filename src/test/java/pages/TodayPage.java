@@ -1,6 +1,5 @@
 package pages;
 
-import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import tests.utils.AllureUtils;
 
@@ -16,7 +15,6 @@ public class TodayPage {
     String ADD_NEW_TASK_CSS = "#quick_add_task_holder";
     String CURRENT_URL = "https://todoist.com/app/#start";
 
-    @Step("open homepage (Today)")
     public TodayPage isPageOpened() {
         sleep(5000);
         assertEquals(url(), CURRENT_URL, "wrong homepage URL");
@@ -24,7 +22,6 @@ public class TodayPage {
         return this;
     }
 
-    @Step("Click add a new task")
     public TodayPage clickTaskFastAdd() {
         $(ADD_NEW_TASK_CSS).click();
         AllureUtils.takeScreenshot(getWebDriver());

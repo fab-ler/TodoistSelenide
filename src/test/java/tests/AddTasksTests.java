@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -19,7 +18,6 @@ public class AddTasksTests extends BaseTest {
         todoistSteps.logOut();
     }
 
-    @Step("add several new tasks and check incoming tasks")
     @Test
     public void createNewTask() {
         todoistSteps

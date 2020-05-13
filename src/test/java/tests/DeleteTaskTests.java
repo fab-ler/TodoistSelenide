@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,8 +20,6 @@ public class DeleteTaskTests extends BaseTest {
         todoistSteps.logOut();
     }
 
-
-    @Step("delete a task")
     @Test
     public void deleteTask() {
         todoistSteps.deleteTask();

@@ -2,7 +2,10 @@ package steps;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import pages.*;
+import pages.FastTaskAddModal;
+import pages.IncomingTasksPage;
+import pages.LoginPage;
+import pages.TodayPage;
 
 @Log4j2
 public class TodoistSteps {
@@ -10,14 +13,14 @@ public class TodoistSteps {
     TodayPage todayPage;
     FastTaskAddModal fastTaskAddModal;
     IncomingTasksPage incomingTasksPage;
-    EditTaskModal editTaskModal;
+//    EditTaskModal editTaskModal;
 
     public TodoistSteps() {
         loginPage = new LoginPage();
         todayPage = new TodayPage();
         fastTaskAddModal = new FastTaskAddModal();
         incomingTasksPage = new IncomingTasksPage();
-        editTaskModal = new EditTaskModal();
+//        editTaskModal = new EditTaskModal();
     }
 
     @Step("signin attempt check with wrong Credendials")
@@ -62,15 +65,16 @@ public class TodoistSteps {
         return this;
     }
 
-    @Step("delete a dast through context menu")
+    @Step("delete a task through context menu")
     public TodoistSteps deleteTask() {
-        editTaskModal.deleteTask();
+        incomingTasksPage.deleteTask();
+        incomingTasksPage.isPageOpened();
         return this;
     }
 
     @Step("edit an existing Task")
     public TodoistSteps editTaskProperties() {
-        editTaskModal.editTaskProperties();
+        incomingTasksPage.editTaskProperties();
         return this;
     }
 }
