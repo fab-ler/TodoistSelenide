@@ -21,9 +21,15 @@ public class EditTaskTests extends BaseTest {
         todoistSteps.logOut();
     }
 
-    @Step("edit a task")
+    @Step("Edit a task term")
     @Test
     public void editTask() {
         todoistSteps.editTaskProperties();
+    }
+
+    @Step("Edit a task priority")
+    @Test
+    public void editTaskPriority() {
+        todoistSteps.editTaskPriority();
     }
 }

@@ -73,4 +73,12 @@ public class TodoistSteps {
         editTaskModal.editTaskProperties();
         return this;
     }
+
+    @Step("change task priority")
+    public TodoistSteps editTaskPriority() {
+        editTaskModal.openModal();
+        editTaskModal.isModalOpened();
+        editTaskModal.editTaskPriority();
+        return this;
+    }
 }

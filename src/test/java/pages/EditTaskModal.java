@@ -3,13 +3,11 @@ package pages;
 import com.codeborne.selenide.Condition;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.testng.Assert;
 import tests.utils.AllureUtils;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Log4j2
@@ -30,33 +28,24 @@ public class EditTaskModal {
 
     public EditTaskModal openModal() {
         log.info("Opening edit task modal");
-        $(TASK_NAME_TEXT, 0).click();
-        try {
-            isModalOpened();
-        } catch (NoSuchElementException e) {
-            log.error("edit task modal is not opened");
-            screenshot("edit_task_modal_not_opened");
-            Assert.fail("edit task modal cannot be opened.");
-        }
+        $(TASK_NAME_TEXT, 0).hover().click();
+        AllureUtils.takeScreenshot(getWebDriver());
         return this;
     }
 
-    void isModalOpened() {
+    public EditTaskModal isModalOpened() {
         log.debug("Checking the edit modal page is opened.");
         $(CLOSE_MODAL_ICON).waitUntil(Condition.appear, 30);
         AllureUtils.takeScreenshot(getWebDriver());
+        return this;
     }
 
-    public EditTaskModal deleteTaskThroughModal() {
-        $(MORE_ACTIONS_ICON).click();
-        sleep(30);
-        AllureUtils.takeScreenshot(getWebDriver());
-        $(DELETE_OPTION_ITEM).click();
-        $(DELETE_COMFIRMATION_ALERT).should(Condition.appear);
-        AllureUtils.takeScreenshot(getWebDriver());
-        sleep(30);
-        $(DELETE_COMFIRMATION_BUTTON).click();
-        AllureUtils.takeScreenshot(getWebDriver());
+    public EditTaskModal editTaskPriority() {
+
+        $(".item_action.item_actions_priority").should(appear).click();
+        $(".dialog-content").should(appear).scrollTo();
+        $(By.xpath("//span[@class='priority_picker_item_name'][contains(text(),'3')]")).click();
+        $(".item_detail_close").click();
         return this;
     }
 

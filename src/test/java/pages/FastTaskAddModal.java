@@ -7,7 +7,8 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import tests.utils.AllureUtils;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Log4j2
@@ -30,12 +31,10 @@ public class FastTaskAddModal {
     @Step("add a new task fast task modal")
     public FastTaskAddModal FastAddNewTaskWithTerm(String taskname, int dateIndex) {
         $(TASK_NAME_INPUT_CSS).sendKeys(taskname);
-        sleep(30);
         AllureUtils.takeScreenshot(getWebDriver());
         $(SELECT_TASK_DATE_CSS).click();
         AllureUtils.takeScreenshot(getWebDriver());
         SELECT_TASK_DATE_ICON_CSS.get(dateIndex).click();
-        sleep(30);
         AllureUtils.takeScreenshot(getWebDriver());
         $(By.xpath(SUBMIT_BUTTON_XPATH)).click();
         AllureUtils.takeScreenshot(getWebDriver());

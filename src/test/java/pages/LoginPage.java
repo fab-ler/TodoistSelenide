@@ -48,7 +48,6 @@ public class LoginPage {
         AllureUtils.takeScreenshot(getWebDriver());
         $(LOGIN_BUTTON_CSS).click();
         AllureUtils.takeScreenshot(getWebDriver());
-//        $(LOADER_ICON).should(Condition.disappear);
         return this;
     }
 
@@ -73,7 +72,6 @@ public class LoginPage {
     public LoginPage logOut() {
         SelenideElement element = $(".gear_normal");
         actions().moveToElement(element).click(element).perform();
-//        $(PREFERENCES_ICON).click();
         $(PREFERENCES_MENU_CONTAINER).shouldBe(Condition.visible);
         $$(PREFENRENCES_MENU_ITEMS).get(11).click();
         return this;
